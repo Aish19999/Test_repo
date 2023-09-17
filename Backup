@@ -1,0 +1,22 @@
+name: Main Workflow
+
+on:
+    workflow_dispatch:
+  
+jobs:
+  read_config:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Call Another Workflow
+        run: |
+          # Execute another workflow using its workflow name
+          curl -X POST https://api.github.com/repos/Aish19999/Reusable_workflow/actions/workflows/actions.yml/dispatches \
+            -H "Authorization: token ${{ secrets.ACTIONS_KEY }}" \
+            -d '{
+               "ref": "main"
+              }' 
+      - uses: actions/checkout@v3      
