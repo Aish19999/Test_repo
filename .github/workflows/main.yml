@@ -1,22 +1,32 @@
-name: Main Workflow
-
+name: workflow_01
 on:
-    workflow_dispatch:
-  
+  workflow_dispatch:
+     inputs:
+      workflow_02:
+        description: 'ًWorkflow 2 which will be triggered'
+        required: true
+        default: 'workflow_02'
+
+      workflow2_github_account:
+        description: 'GitHub Account Owner'
+        required: true
+        default: ':userName'
+
+      workflow2_repo_github:
+        description: 'repo-name'
+        required: true
+        default: ':repoName' 
+
 jobs:
-  read_config:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Call Another Workflow
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Test
         run: |
-          # Execute another workflow using its workflow name
-          curl -X POST https://api.github.com/repos/Aish19999/Reusable_workflow/actions/workflows/actions.yml/dispatches \
-            -H "Authorization: token ${{ secrets.ACTIONS_KEY }}" \
-            -d '{
-               "ref": "main"
-              }' 
-      - uses: actions/checkout@v3      
+          curl -X POST https://api.github.com/repos/Aish1999/Reusable_workflow/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.ACTIONS_KEY }} \
+          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+      - uses: actions/checkout@v3
