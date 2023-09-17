@@ -2,21 +2,6 @@ name: Main Workflow
 
 on:
     workflow_dispatch:
-     inputs:
-      CICD workflow:
-        description: 'ًWorkflow 2 which will be triggered'
-        required: true
-        default: 'CICD workflow'
-
-      workflow2_github_account:
-        description: 'GitHub Account Owner'
-        required: true
-        default: ':Aish19999'
-
-      workflow2_repo_github:
-        description: 'Reusable_workflow'
-        required: true
-        default: ':Reusable_workflow'
     push:
       branches:
       - main
