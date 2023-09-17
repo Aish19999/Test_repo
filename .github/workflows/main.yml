@@ -21,6 +21,7 @@ jobs:
           curl -X POST https://api.github.com/repos/Aish19999/Reusable_workflow/actions/workflows/actions.yml/dispatches \
             -H "Authorization: token ${{ secrets.ACTIONS_KEY }}" \
             -d '{
-               "event_type": "workflow_dispatch",
+               "ref": "main",
+               "event_type": "workflow_dispatch"
         
               }' 
