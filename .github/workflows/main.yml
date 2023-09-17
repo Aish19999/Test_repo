@@ -14,7 +14,7 @@ jobs:
       - name: Call Another Workflow
         run: |
           # Execute another workflow using its workflow name
-          curl -X POST https://api.github.com/repos/Aish19999/Reusable_workflow/actions/workflows/6215111284/dispatches \
+          curl -X POST https://api.github.com/repos/Aish19999/Reusable_workflow/actions/workflows/actions.yml/dispatches \
             -H "Authorization: token ${{ secrets.ACTIONS_KEY }}" \
             -d '{
                "ref": "main"
