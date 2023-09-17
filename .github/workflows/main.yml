@@ -20,4 +20,10 @@ jobs:
           # Execute another workflow using its workflow name
           curl -X POST https://api.github.com/repos/Aish19999/Reusable_workflow/actions/workflows/actions.yml/dispatches \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -d '{"ref":"main"}'        
+            -d '{
+               "event_type": "workflow_dispatch",
+               "client_payload": {
+                  "param1": "value1",
+                  "param2": "value2"
+               }      
+              }' 
