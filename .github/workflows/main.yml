@@ -1,0 +1,16 @@
+name: Main Workflow
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  
+  
+jobs:
+  read_config:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
