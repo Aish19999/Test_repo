@@ -20,5 +20,5 @@ jobs:
           sleep 10s
 
   calling_another_workflow:   
-    uses: Aish1999/Reusable_workflow/.github/workflows/actions.yml@main
+    uses: Aish19999/Reusable_workflow/.github/workflows/actions.yml@main
 
