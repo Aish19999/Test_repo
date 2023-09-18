@@ -1,25 +1,24 @@
 name: Deploy
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
 jobs:
-  build:
-    name: Run Web App
+  do-it:
     runs-on: ubuntu-latest
+    
     steps:
       - name: Build Web App
         run: |
           echo "Build Web App"
           sleep 10s
-      - uses: convictional/trigger-workflow-and-wait@v1.3.0
-        with:
-          owner: Aish19999
-          repo: Reusable_workflow
-          github_token: ${{ secrets.ACTIONS_KEY }}
-          workflow_file_name: actions.yml
+      
       - name: Deploy Web App
         run: |
           echo "Deploy Web App"
           sleep 10s
+
+  calling_another_workflow:   
+    uses: Aish1999/Reusable_workflow/.github/workflows/actions.yml@main
 
