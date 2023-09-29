@@ -14,4 +14,4 @@ jobs:
         uses: actions/checkout@v2
 
   pipeline:
-     uses: Aish19999/Reusable_workflow/.github/workflows/action.yml@main
+     uses: Aish19999/Reusable_workflow/.github/workflows/actions.yml@main
