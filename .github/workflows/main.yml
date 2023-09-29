@@ -13,5 +13,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Use Reusable Workflow
-        uses: Aish19999/Reusable_workflow/.github/workflows/action.yml@main
+  pipeline:
+     uses: Aish19999/Reusable_workflow/.github/workflows/action.yml@main
