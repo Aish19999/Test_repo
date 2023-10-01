@@ -14,5 +14,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: check env varaible
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WORKFLOW_PAT: ${{ secrets.WORKFLOW_PAT }}
+          ACTIONS_STEP_DEBUG: true
+        run: |
+          PAT="${{ env.WORKFLOW_PAT }}" 
+          echo "My PAT Token: $PAT"
+
   pipeline:
      uses: Aish19999/Reusable_workflow/.github/workflows/actions.yml@main
