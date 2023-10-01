@@ -24,4 +24,16 @@ jobs:
           echo "My PAT Token: $PAT"
 
   pipeline:
-     uses: Aish19999/Reusable_workflow/.github/workflows/actions.yml@main
+      runs-on: ubuntu-latest
+      
+      steps:
+      - name: Dynamically Call Workflow
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WORKFLOW_PAT: ${{ secrets.WORKFLOW_PAT }}
+          ACTIONS_STEP_DEBUG: true
+
+        run: |
+          PAT="${{ env.WORKFLOW_PAT }}" 
+          echo "My PAT Token: $PAT"
+      
