@@ -1,6 +1,11 @@
 name: My Custom Workflow
 
 on:
+  workflow_call:
+  workflow_run:
+    workflows: ["Main Workflow"]
+    types:
+      - completed
   workflow_dispatch:
   push:
     branches:
